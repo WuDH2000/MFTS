@@ -1,0 +1,61 @@
+{
+    "model_rs": "src.models.spatialnet.mamba_noinfor_env_getpoints",
+    "model_wl": "src.models.dcsa",
+    "train_data":
+    {
+        "input_dir": "/data/wdh/ssdata/240912_four_speakers_10ms",
+        "dset": "train",
+        "sr": 16000,
+        "order":1,
+        "hoa":true,
+        "if_rev":true,
+        "n_src":2,
+        "bg_noise":true
+
+    },
+    "val_data":
+    {
+        "input_dir": "/data/wdh/ssdata/240912_four_speakers_10ms",
+        "dset": "val",
+        "sr": 16000,
+        "order":1,
+        "hoa":true,
+        "if_rev":true,
+        "n_src":2,
+        "bg_noise":true
+    },
+    "test_data":
+    {
+        "input_dir": "/data/wdh/ssdata/240912_four_speakers_10ms",
+        "dset": "test",
+        "sr": 16000,
+        "order":1,
+        "hoa":true,
+        "if_rev":true,
+        "n_src":2,
+        "bg_noise":true
+    },
+    "optim":
+    {
+        "lr": 5e-4,
+        "weight_decay": 0.0
+    },
+    "lr_sched":
+    {
+        "mode": "max",
+        "factor": 0.1,
+        "patience": 5,
+        "min_lr": 5e-6,
+        "threshold": 0.1,
+        "threshold_mode": "abs"
+    },
+    "base_metric": "adt",
+    "fix_lr_epochs": 50,
+    "epochs": 100,
+    "batch_size": 8,
+    "eval_batch_size": 16,
+    "n_workers": 8,
+    "sep_IV":false,
+    "sep_dist":false,
+    "save_model_path":"dcsa_2src"
+}
