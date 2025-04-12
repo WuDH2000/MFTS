@@ -280,7 +280,7 @@ def loss_loc(pred, tgt, est_env = None):
     #[B, T, 3]
     loss_diff = 0
     step = 1
-    while step < 2 ** 5:
+    while step < 2 ** 11:
         tloss = mse_loss(pred[:, step::step] - pred[:, 0:-step:step], 
                        tgt[:, step::step] - tgt[:, 0:-step:step])
         loss_diff += tloss
